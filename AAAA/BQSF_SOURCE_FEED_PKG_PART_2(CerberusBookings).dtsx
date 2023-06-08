@@ -1,0 +1,786 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/12/2022 1:22:05 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-6PDIPKC0EER"
+  DTS:CreatorName="WIN-6PDIPKC0EER\Chari"
+  DTS:DTSID="{2A13FFAD-B9DC-4968-A712-CF04CBFD39F8}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.845.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="BQSF_SOURCE_FEED_PKG_PART_2 CerberusBookings"
+  DTS:PackageType="5"
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{CDFC0DDA-4E6E-4236-8785-12A57052BEA8}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[10.31.0.80.Analytics.chari]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{134F4627-8ACC-4B62-96B5-B3BD1495F37D}"
+      DTS:ObjectName="10.31.0.80.Analytics.chari">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=WIN-6PDIPKC0EER;Initial Catalog=Analytics_Source;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{134F4627-8ACC-4B62-96B5-B3BD1495F37D}10.31.0.80.Analytics.chari;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BIGQ.renukachari.kasee]"
+      DTS:CreationName="ODBC"
+      DTS:DTSID="{B5F9B3CD-CE84-49E8-848B-FC039E4C703E}"
+      DTS:ObjectName="BIGQ.renukachari.kasee">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="uid=renukachari.kasee;Dsn=BIGQ;">
+          <DTS:Password
+            DTS:Name="pwd"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHEoKqn04gEaxi9PawkC/EQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADyH2nicbWvtRxvnsCTmw9Mwrzca1TojIiAXh7z3Y+kBwAAAAAOgAAAAAIAACAAAAAwzBA+Pmu8EIygQGsLYgzhjyDJJidEWBku3fi06P6jySAAAAC6TsvlDvm6XmxbORYClsD1tSVBFU+TEKfyVh92DrjQHkAAAAAraPBbGUjOa/L1Nf90h2v3+GRViS5YvXE/jZPM5KTbgoXI+9YK1Mda5g5zPQBqBe7xXaKyLoryc4nl5FrFs0+3</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BIGQ.renukachari.kasee 1]"
+      DTS:CreationName="ADO.NET:System.Data.Odbc.OdbcConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{315E13EA-8237-41F1-ABA5-41DABB49C1E6}"
+      DTS:ObjectName="BIGQ.renukachari.kasee 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="uid=renukachari.kasee;Dsn=BIGQ;">
+          <DTS:Password
+            DTS:Name="pwd"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHEoKqn04gEaxi9PawkC/EQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADB7aJo7Whlu3FoJlLV9DvZMVyPI5F+SLVENZfUeubVTwAAAAAOgAAAAAIAACAAAABFYkaQyNDprtHLvzjcDkQeNSTHCmmGSNdwJ7XUdg3JJiAAAACOldwInRY7BLwNBjnpTvZ11poqxt4S3xlek6qWi7d6A0AAAAAnxWiu/a+t0XIuFC46ErSsF8QgoPnYQQOt7TItwYurfyPbwxruAClT0SUdZ8MYXkuzc8x3Zf7Wwvr8/L/GwKAC</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\BQCerberusBookings_Deferrals"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{A639A3EE-4CCB-407A-9F87-BB6B2CF63D89}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="BQCerberusBookings_Deferrals"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="BQCerberusBookings_Deferrals"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[BQCerberusBookings_Deferrals]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[10.31.0.80.Analytics.chari]"
+                  connectionManagerRefId="Package.ConnectionManagers[10.31.0.80.Analytics.chari]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="IgnoreFailure"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input].Columns[RUN_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="RUN_DATE"
+                      externalMetadataColumnId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input].ExternalColumns[RUN_DATE]"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].Columns[RUN_DATE]" />
+                    <inputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input].Columns[Type]"
+                      cachedDataType="nText"
+                      cachedName="Type"
+                      externalMetadataColumnId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input].ExternalColumns[Type]"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].Columns[Type]" />
+                    <inputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input].Columns[BookingType]"
+                      cachedDataType="nText"
+                      cachedName="BookingType"
+                      externalMetadataColumnId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input].ExternalColumns[BookingType]"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].Columns[BookingType]" />
+                    <inputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input].Columns[FY]"
+                      cachedDataType="nText"
+                      cachedName="FY"
+                      externalMetadataColumnId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input].ExternalColumns[FY]"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].Columns[FY]" />
+                    <inputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input].Columns[FQ]"
+                      cachedDataType="nText"
+                      cachedName="FQ"
+                      externalMetadataColumnId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input].ExternalColumns[FQ]"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].Columns[FQ]" />
+                    <inputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input].Columns[FM]"
+                      cachedDataType="nText"
+                      cachedName="FM"
+                      externalMetadataColumnId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input].ExternalColumns[FM]"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].Columns[FM]" />
+                    <inputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input].Columns[FW]"
+                      cachedDataType="nText"
+                      cachedName="FW"
+                      externalMetadataColumnId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input].ExternalColumns[FW]"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].Columns[FW]" />
+                    <inputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input].Columns[OrderDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="OrderDate"
+                      externalMetadataColumnId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input].ExternalColumns[OrderDate]"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].Columns[OrderDate]" />
+                    <inputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input].Columns[Amount]"
+                      cachedDataType="r8"
+                      cachedName="Amount"
+                      externalMetadataColumnId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input].ExternalColumns[Amount]"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].Columns[Amount]" />
+                    <inputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input].Columns[cnt]"
+                      cachedDataType="i8"
+                      cachedName="cnt"
+                      externalMetadataColumnId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input].ExternalColumns[cnt]"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].Columns[cnt]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input].ExternalColumns[RUN_DATE]"
+                      dataType="dbTimeStamp"
+                      name="RUN_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input].ExternalColumns[Type]"
+                      dataType="nText"
+                      name="Type" />
+                    <externalMetadataColumn
+                      refId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input].ExternalColumns[BookingType]"
+                      dataType="nText"
+                      name="BookingType" />
+                    <externalMetadataColumn
+                      refId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input].ExternalColumns[FY]"
+                      dataType="nText"
+                      name="FY" />
+                    <externalMetadataColumn
+                      refId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input].ExternalColumns[FQ]"
+                      dataType="nText"
+                      name="FQ" />
+                    <externalMetadataColumn
+                      refId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input].ExternalColumns[FM]"
+                      dataType="nText"
+                      name="FM" />
+                    <externalMetadataColumn
+                      refId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input].ExternalColumns[FW]"
+                      dataType="nText"
+                      name="FW" />
+                    <externalMetadataColumn
+                      refId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input].ExternalColumns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      name="OrderDate" />
+                    <externalMetadataColumn
+                      refId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input].ExternalColumns[Amount]"
+                      dataType="r8"
+                      name="Amount" />
+                    <externalMetadataColumn
+                      refId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input].ExternalColumns[cnt]"
+                      dataType="i8"
+                      name="cnt" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="CerberusBookings_Deferrals"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select current_date as RUN_DATE,A.* from activeco.Analytics.CerberusBookings_Deferrals A</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[BIGQ.renukachari.kasee 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[BIGQ.renukachari.kasee 1]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].Columns[RUN_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].ExternalColumns[RUN_DATE]"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].Columns[RUN_DATE]"
+                      name="RUN_DATE"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].Columns[Type]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].ExternalColumns[Type]"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].Columns[Type]"
+                      name="Type"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].Columns[BookingType]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].ExternalColumns[BookingType]"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].Columns[BookingType]"
+                      name="BookingType"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].Columns[FY]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].ExternalColumns[FY]"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].Columns[FY]"
+                      name="FY"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].Columns[FQ]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].ExternalColumns[FQ]"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].Columns[FQ]"
+                      name="FQ"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].Columns[FM]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].ExternalColumns[FM]"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].Columns[FM]"
+                      name="FM"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].Columns[FW]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].ExternalColumns[FW]"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].Columns[FW]"
+                      name="FW"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].Columns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].ExternalColumns[OrderDate]"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].Columns[OrderDate]"
+                      name="OrderDate"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].Columns[Amount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].ExternalColumns[Amount]"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].Columns[Amount]"
+                      name="Amount"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].Columns[cnt]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].ExternalColumns[cnt]"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].Columns[cnt]"
+                      name="cnt"
+                      truncationRowDisposition="IgnoreFailure" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].ExternalColumns[RUN_DATE]"
+                      dataType="dbTimeStamp"
+                      name="RUN_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].ExternalColumns[Type]"
+                      dataType="nText"
+                      name="Type" />
+                    <externalMetadataColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].ExternalColumns[BookingType]"
+                      dataType="nText"
+                      name="BookingType" />
+                    <externalMetadataColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].ExternalColumns[FY]"
+                      dataType="nText"
+                      name="FY" />
+                    <externalMetadataColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].ExternalColumns[FQ]"
+                      dataType="nText"
+                      name="FQ" />
+                    <externalMetadataColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].ExternalColumns[FM]"
+                      dataType="nText"
+                      name="FM" />
+                    <externalMetadataColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].ExternalColumns[FW]"
+                      dataType="nText"
+                      name="FW" />
+                    <externalMetadataColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].ExternalColumns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      name="OrderDate" />
+                    <externalMetadataColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].ExternalColumns[Amount]"
+                      dataType="r8"
+                      name="Amount" />
+                    <externalMetadataColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output].ExternalColumns[cnt]"
+                      dataType="i8"
+                      name="cnt" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Error Output].Columns[RUN_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Error Output].Columns[RUN_DATE]"
+                      name="RUN_DATE" />
+                    <outputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Error Output].Columns[Type]"
+                      dataType="nText"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Error Output].Columns[Type]"
+                      name="Type" />
+                    <outputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Error Output].Columns[BookingType]"
+                      dataType="nText"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Error Output].Columns[BookingType]"
+                      name="BookingType" />
+                    <outputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Error Output].Columns[FY]"
+                      dataType="nText"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Error Output].Columns[FY]"
+                      name="FY" />
+                    <outputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Error Output].Columns[FQ]"
+                      dataType="nText"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Error Output].Columns[FQ]"
+                      name="FQ" />
+                    <outputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Error Output].Columns[FM]"
+                      dataType="nText"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Error Output].Columns[FM]"
+                      name="FM" />
+                    <outputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Error Output].Columns[FW]"
+                      dataType="nText"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Error Output].Columns[FW]"
+                      name="FW" />
+                    <outputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Error Output].Columns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Error Output].Columns[OrderDate]"
+                      name="OrderDate" />
+                    <outputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Error Output].Columns[Amount]"
+                      dataType="r8"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Error Output].Columns[Amount]"
+                      name="Amount" />
+                    <outputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Error Output].Columns[cnt]"
+                      dataType="i8"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Error Output].Columns[cnt]"
+                      name="cnt" />
+                    <outputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\BQCerberusBookings_Deferrals.Paths[ADO NET Source Output]"
+              endId="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals.Inputs[OLE DB Destination Input]"
+              name="ADO NET Source Output"
+              startId="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals.Outputs[ADO NET Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TRUNCATE_TABLE 2 2 1 1 1 1 1 1 1 2"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{DF1D6094-1A61-4EA2-AEB9-BAB055E2F543}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TRUNCATE_TABLE 2 2 1 1 1 1 1 1 1 2"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{134F4627-8ACC-4B62-96B5-B3BD1495F37D}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [Analytics_Source].[DBO].[BQCerberusBookings_Deferrals]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2 2 1 1 1 1 1 1 1 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{1D5F3D93-8938-4481-8533-030EB99F8084}"
+      DTS:From="Package\TRUNCATE_TABLE 2 2 1 1 1 1 1 1 1 2"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2 2 1 1 1 1 1 1 1 2"
+      DTS:To="Package\BQCerberusBookings_Deferrals" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{22C4A88F-E441-4CBF-B27A-A174B8E6483E}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{D6C26FC7-2F46-4102-A94A-D5F679A1FDC1}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\ERROR_NOTIFICATION"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{15B6FB01-AFA4-4010-A76F-85811213C3D7}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ERROR_NOTIFICATION"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{134F4627-8ACC-4B62-96B5-B3BD1495F37D}"
+              SQLTask:SqlStatementSource="EXEC [Analytics_Lookup].[dbo].[sp_SQLD_Reports_Failure_Email_Task] ?,?,?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::MachineName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="System::SourceName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="System::ErrorDescription"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="236,42"
+          Id="Package\BQCerberusBookings_Deferrals"
+          TopLeft="253.958332446507,299.960529810388" />
+        <NodeLayout
+          Size="266,42"
+          Id="Package\TRUNCATE_TABLE 2 2 1 1 1 1 1 1 1 2"
+          TopLeft="264.583332288183,234.276318047731" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2 2 1 1 1 1 1 1 1 2]"
+          TopLeft="397.583332288183,276.276318047731">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-25.624999841676,23.684211762657"
+              Start="0,0"
+              End="-25.624999841676,16.184211762657">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,7.84210588132848" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.84210588132848"
+                    Point2="0,11.8421058813285"
+                    Point3="-4,11.8421058813285" />
+                  <mssgle:LineSegment
+                    End="-21.624999841676,11.8421058813285" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-21.624999841676,11.8421058813285"
+                    Point2="-25.624999841676,11.8421058813285"
+                    Point3="-25.624999841676,15.8421058813285" />
+                  <mssgle:LineSegment
+                    End="-25.624999841676,16.184211762657" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="136,44"
+          Id="Package.EventHandlers[OnError]\ERROR_NOTIFICATION"
+          TopLeft="449,298" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\BQCerberusBookings_Deferrals">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="220,42"
+          Id="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals"
+          TopLeft="220,260" />
+        <NodeLayout
+          Size="236,42"
+          Id="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals"
+          TopLeft="580,270" />
+        <EdgeLayout
+          Id="Package\BQCerberusBookings_Deferrals.Paths[ADO NET Source Output]"
+          TopLeft="440,281">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="140,10"
+              Start="0,0"
+              End="132.5,10">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="66,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="66,0"
+                    Point2="70,0"
+                    Point3="70,4" />
+                  <mssgle:LineSegment
+                    End="70,6" />
+                  <mssgle:CubicBezierSegment
+                    Point1="70,6"
+                    Point2="70,10"
+                    Point3="74,10" />
+                  <mssgle:LineSegment
+                    End="132.5,10" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\BQCerberusBookings_Deferrals\BQCerberusBookings_Deferrals">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\BQCerberusBookings_Deferrals\CerberusBookings_Deferrals">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

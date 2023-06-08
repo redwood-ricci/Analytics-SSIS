@@ -1,0 +1,1005 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/12/2022 1:22:05 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-6PDIPKC0EER"
+  DTS:CreatorName="WIN-6PDIPKC0EER\Chari"
+  DTS:DTSID="{813AF072-9AFA-4788-B8E2-7881D1A8E9D6}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.845.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="BQTB_SOURCE_FEED_PKG"
+  DTS:PackageType="5"
+  DTS:VersionBuild="36"
+  DTS:VersionGUID="{FF43ACDA-8017-47C1-9116-D215701C0DC6}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[10.31.0.80.Analytics.chari]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BB5F7A59-A6E4-4DFF-BA95-F0514509BF3F}"
+      DTS:ObjectName="10.31.0.80.Analytics.chari">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=WIN-6PDIPKC0EER;Initial Catalog=Analytics_Source;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{BB5F7A59-A6E4-4DFF-BA95-F0514509BF3F}10.31.0.80.Analytics.chari;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BIGQ.renukachari.kasee]"
+      DTS:CreationName="ODBC"
+      DTS:DTSID="{81393BF7-769E-497A-8459-BE9102602622}"
+      DTS:ObjectName="BIGQ.renukachari.kasee">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="uid=renukachari.kasee;Dsn=BIGQ;">
+          <DTS:Password
+            DTS:Name="pwd"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAulNbUDm7MkSwtT/x8tD6JAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADZO2NOsYsI9zZkF6+A88oZHYyza/AiM88jRt74hldo+QAAAAAOgAAAAAIAACAAAADYIYacP4wmoat7C71bHx5kzno22Rrtoadkw+6LqErfvSAAAABu6AiCCrHYvkEw/rwnTMTazlEmJuvqHDRhvcMLUKM6NEAAAABLW81G/yNOobFV9P0fD/UvLK53E+1Tr6wD1JFrKJQV/K8FozpOxBd1OjHJVRkp3WoKeUWb103i7rpWlfmBoDqR</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BIGQ.renukachari.kasee 1]"
+      DTS:CreationName="ADO.NET:System.Data.Odbc.OdbcConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{64B77024-4E23-4B44-A35C-DCCB542E7375}"
+      DTS:ObjectName="BIGQ.renukachari.kasee 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="uid=renukachari.kasee;Dsn=BIGQ;">
+          <DTS:Password
+            DTS:Name="pwd"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAulNbUDm7MkSwtT/x8tD6JAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADA+Ds/zUXqXNzpr62eDna8QwzWhP23OCFYYbd/X3VYRQAAAAAOgAAAAAIAACAAAACCyV3/w9tQM5qeWnvw4Huu+l+B0v9LsMVTXO9+lJAb1iAAAABFASX4lqQ2fwyQzHD3efzfOXKEqR2Uht/z44R6G3KABEAAAABDpI9cOZ7u22JvFGz40MAhqlBUY4yQphSJajPS86cqheESecK59k/kdjqMRXxGkdBEjCL0L7KE1TeLwzBbeX0B</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\BQTB_metric_table"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{B63B6038-42F0-4CAC-8606-95D1DED99EF5}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="BQTB_metric_table"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\BQTB_metric_table\ADO NET Source 1"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="ADO NET Source 1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM `activeco.tableau.metric_table`</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\BQTB_metric_table\ADO NET Source 1.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[BIGQ.renukachari.kasee 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[BIGQ.renukachari.kasee 1]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[ActualTarget]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].ExternalColumns[ActualTarget]"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[ActualTarget]"
+                      name="ActualTarget"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[Metric]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].ExternalColumns[Metric]"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[Metric]"
+                      name="Metric"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[LeadId]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].ExternalColumns[LeadId]"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[LeadId]"
+                      name="LeadId"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[OppId]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].ExternalColumns[OppId]"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[OppId]"
+                      name="OppId"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[AccountId]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].ExternalColumns[AccountId]"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[AccountId]"
+                      name="AccountId"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[LeadCreatedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].ExternalColumns[LeadCreatedDate]"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[LeadCreatedDate]"
+                      name="LeadCreatedDate"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[OppCreatedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].ExternalColumns[OppCreatedDate]"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[OppCreatedDate]"
+                      name="OppCreatedDate"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[ActivityDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].ExternalColumns[ActivityDate]"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[ActivityDate]"
+                      name="ActivityDate"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[Product]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].ExternalColumns[Product]"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[Product]"
+                      name="Product"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[ReportGroup]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].ExternalColumns[ReportGroup]"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[ReportGroup]"
+                      name="ReportGroup"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[Funnel]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].ExternalColumns[Funnel]"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[Funnel]"
+                      name="Funnel"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[Segment]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].ExternalColumns[Segment]"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[Segment]"
+                      name="Segment"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[Amount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].ExternalColumns[Amount]"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[Amount]"
+                      name="Amount"
+                      truncationRowDisposition="IgnoreFailure" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].ExternalColumns[ActualTarget]"
+                      dataType="nText"
+                      name="ActualTarget" />
+                    <externalMetadataColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].ExternalColumns[Metric]"
+                      dataType="nText"
+                      name="Metric" />
+                    <externalMetadataColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].ExternalColumns[LeadId]"
+                      dataType="nText"
+                      name="LeadId" />
+                    <externalMetadataColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].ExternalColumns[OppId]"
+                      dataType="nText"
+                      name="OppId" />
+                    <externalMetadataColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].ExternalColumns[AccountId]"
+                      dataType="nText"
+                      name="AccountId" />
+                    <externalMetadataColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].ExternalColumns[LeadCreatedDate]"
+                      dataType="dbTimeStamp"
+                      name="LeadCreatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].ExternalColumns[OppCreatedDate]"
+                      dataType="dbTimeStamp"
+                      name="OppCreatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].ExternalColumns[ActivityDate]"
+                      dataType="dbTimeStamp"
+                      name="ActivityDate" />
+                    <externalMetadataColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].ExternalColumns[Product]"
+                      dataType="nText"
+                      name="Product" />
+                    <externalMetadataColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].ExternalColumns[ReportGroup]"
+                      dataType="nText"
+                      name="ReportGroup" />
+                    <externalMetadataColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].ExternalColumns[Funnel]"
+                      dataType="nText"
+                      name="Funnel" />
+                    <externalMetadataColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].ExternalColumns[Segment]"
+                      dataType="nText"
+                      name="Segment" />
+                    <externalMetadataColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].ExternalColumns[Amount]"
+                      dataType="r8"
+                      name="Amount" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output].Columns[ActualTarget]"
+                      dataType="nText"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output].Columns[ActualTarget]"
+                      name="ActualTarget" />
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output].Columns[Metric]"
+                      dataType="nText"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output].Columns[Metric]"
+                      name="Metric" />
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output].Columns[LeadId]"
+                      dataType="nText"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output].Columns[LeadId]"
+                      name="LeadId" />
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output].Columns[OppId]"
+                      dataType="nText"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output].Columns[OppId]"
+                      name="OppId" />
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output].Columns[AccountId]"
+                      dataType="nText"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output].Columns[AccountId]"
+                      name="AccountId" />
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output].Columns[LeadCreatedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output].Columns[LeadCreatedDate]"
+                      name="LeadCreatedDate" />
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output].Columns[OppCreatedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output].Columns[OppCreatedDate]"
+                      name="OppCreatedDate" />
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output].Columns[ActivityDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output].Columns[ActivityDate]"
+                      name="ActivityDate" />
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output].Columns[Product]"
+                      dataType="nText"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output].Columns[Product]"
+                      name="Product" />
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output].Columns[ReportGroup]"
+                      dataType="nText"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output].Columns[ReportGroup]"
+                      name="ReportGroup" />
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output].Columns[Funnel]"
+                      dataType="nText"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output].Columns[Funnel]"
+                      name="Funnel" />
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output].Columns[Segment]"
+                      dataType="nText"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output].Columns[Segment]"
+                      name="Segment" />
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output].Columns[Amount]"
+                      dataType="r8"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output].Columns[Amount]"
+                      name="Amount" />
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\BQTB_metric_table\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\BQTB_metric_table\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\BQTB_metric_table\Data Conversion.Inputs[Data Conversion Input].Columns[RUN_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="RUN_DATE"
+                      lineageId="Package\BQTB_metric_table\Derived Column.Outputs[Derived Column Output].Columns[RUN_DATE]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\BQTB_metric_table\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\BQTB_metric_table\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of RUN_DATE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      length="10"
+                      lineageId="Package\BQTB_metric_table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of RUN_DATE]"
+                      name="Copy of RUN_DATE"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\BQTB_metric_table\Derived Column.Outputs[Derived Column Output].Columns[RUN_DATE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\BQTB_metric_table\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\BQTB_metric_table\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\BQTB_metric_table\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\BQTB_metric_table\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\BQTB_metric_table\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\BQTB_metric_table\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\BQTB_metric_table\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\BQTB_metric_table\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\Derived Column.Outputs[Derived Column Output].Columns[RUN_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\BQTB_metric_table\Derived Column.Outputs[Derived Column Output].Columns[RUN_DATE]"
+                      name="RUN_DATE"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\BQTB_metric_table\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\BQTB_metric_table\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\BQTB_metric_table\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\BQTB_metric_table\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\BQTB_metric_table\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[BQTB_METRIC_TABLE]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\BQTB_metric_table\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[10.31.0.80.Analytics.chari]"
+                  connectionManagerRefId="Package.ConnectionManagers[10.31.0.80.Analytics.chari]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="IgnoreFailure"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ActualTarget]"
+                      cachedDataType="nText"
+                      cachedName="ActualTarget"
+                      externalMetadataColumnId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActualTarget]"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[ActualTarget]" />
+                    <inputColumn
+                      refId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Metric]"
+                      cachedDataType="nText"
+                      cachedName="Metric"
+                      externalMetadataColumnId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Metric]"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[Metric]" />
+                    <inputColumn
+                      refId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LeadId]"
+                      cachedDataType="nText"
+                      cachedName="LeadId"
+                      externalMetadataColumnId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LeadId]"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[LeadId]" />
+                    <inputColumn
+                      refId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OppId]"
+                      cachedDataType="nText"
+                      cachedName="OppId"
+                      externalMetadataColumnId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OppId]"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[OppId]" />
+                    <inputColumn
+                      refId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AccountId]"
+                      cachedDataType="nText"
+                      cachedName="AccountId"
+                      externalMetadataColumnId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AccountId]"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[AccountId]" />
+                    <inputColumn
+                      refId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LeadCreatedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LeadCreatedDate"
+                      externalMetadataColumnId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LeadCreatedDate]"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[LeadCreatedDate]" />
+                    <inputColumn
+                      refId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OppCreatedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="OppCreatedDate"
+                      externalMetadataColumnId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OppCreatedDate]"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[OppCreatedDate]" />
+                    <inputColumn
+                      refId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ActivityDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ActivityDate"
+                      externalMetadataColumnId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActivityDate]"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[ActivityDate]" />
+                    <inputColumn
+                      refId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Product]"
+                      cachedDataType="nText"
+                      cachedName="Product"
+                      externalMetadataColumnId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product]"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[Product]" />
+                    <inputColumn
+                      refId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ReportGroup]"
+                      cachedDataType="nText"
+                      cachedName="ReportGroup"
+                      externalMetadataColumnId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReportGroup]"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[ReportGroup]" />
+                    <inputColumn
+                      refId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Funnel]"
+                      cachedDataType="nText"
+                      cachedName="Funnel"
+                      externalMetadataColumnId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Funnel]"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[Funnel]" />
+                    <inputColumn
+                      refId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Segment]"
+                      cachedDataType="nText"
+                      cachedName="Segment"
+                      externalMetadataColumnId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Segment]"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[Segment]" />
+                    <inputColumn
+                      refId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Amount]"
+                      cachedDataType="r8"
+                      cachedName="Amount"
+                      externalMetadataColumnId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Amount]"
+                      lineageId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output].Columns[Amount]" />
+                    <inputColumn
+                      refId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of RUN_DATE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Copy of RUN_DATE"
+                      externalMetadataColumnId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RUN_DATE]"
+                      lineageId="Package\BQTB_metric_table\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of RUN_DATE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RUN_DATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="RUN_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActualTarget]"
+                      dataType="nText"
+                      name="ActualTarget" />
+                    <externalMetadataColumn
+                      refId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Metric]"
+                      dataType="nText"
+                      name="Metric" />
+                    <externalMetadataColumn
+                      refId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LeadId]"
+                      dataType="nText"
+                      name="LeadId" />
+                    <externalMetadataColumn
+                      refId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OppId]"
+                      dataType="nText"
+                      name="OppId" />
+                    <externalMetadataColumn
+                      refId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AccountId]"
+                      dataType="nText"
+                      name="AccountId" />
+                    <externalMetadataColumn
+                      refId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LeadCreatedDate]"
+                      dataType="dbTimeStamp"
+                      name="LeadCreatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OppCreatedDate]"
+                      dataType="dbTimeStamp"
+                      name="OppCreatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActivityDate]"
+                      dataType="dbTimeStamp"
+                      name="ActivityDate" />
+                    <externalMetadataColumn
+                      refId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product]"
+                      dataType="nText"
+                      name="Product" />
+                    <externalMetadataColumn
+                      refId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReportGroup]"
+                      dataType="nText"
+                      name="ReportGroup" />
+                    <externalMetadataColumn
+                      refId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Funnel]"
+                      dataType="nText"
+                      name="Funnel" />
+                    <externalMetadataColumn
+                      refId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Segment]"
+                      dataType="nText"
+                      name="Segment" />
+                    <externalMetadataColumn
+                      refId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Amount]"
+                      dataType="r8"
+                      name="Amount" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\BQTB_metric_table\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\BQTB_metric_table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\BQTB_metric_table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\BQTB_metric_table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\BQTB_metric_table.Paths[ADO NET Source Output]"
+              endId="Package\BQTB_metric_table\Derived Column.Inputs[Derived Column Input]"
+              name="ADO NET Source Output"
+              startId="Package\BQTB_metric_table\ADO NET Source 1.Outputs[ADO NET Source Output]" />
+            <path
+              refId="Package\BQTB_metric_table.Paths[Data Conversion Output]"
+              endId="Package\BQTB_metric_table\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\BQTB_metric_table\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\BQTB_metric_table.Paths[Derived Column Output]"
+              endId="Package\BQTB_metric_table\Data Conversion.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\BQTB_metric_table\Derived Column.Outputs[Derived Column Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TRUNCATE_TABLE"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{E1C73463-6344-4A8F-B9CC-3AA30ADC9C1E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TRUNCATE_TABLE"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BB5F7A59-A6E4-4DFF-BA95-F0514509BF3F}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE ANALYTICS_SOURCE.DBO.BQTB_METRIC_TABLE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{EF301C52-D608-4BF0-A0EF-9C92479AD013}"
+      DTS:From="Package\TRUNCATE_TABLE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\BQTB_metric_table" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="169,42"
+          Id="Package\BQTB_metric_table"
+          TopLeft="194.374997103587,117.684212741429" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\TRUNCATE_TABLE"
+          TopLeft="199.999997019768,49.947369361188" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="281.387497061677,92.347369361188">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25.336843380241"
+              Start="0,0"
+              End="0,17.836843380241">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.836843380241" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\BQTB_metric_table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="158.4,42.4"
+          Id="Package\BQTB_metric_table\Data Conversion"
+          TopLeft="634.374990547076,121.105265437401" />
+        <NodeLayout
+          Size="164,42.4"
+          Id="Package\BQTB_metric_table\ADO NET Source 1"
+          TopLeft="163.958331366173,117.200000123978" />
+        <NodeLayout
+          Size="156,42.4"
+          Id="Package\BQTB_metric_table\Derived Column"
+          TopLeft="408.124993918464,121.105265437401" />
+        <EdgeLayout
+          Id="Package\BQTB_metric_table.Paths[ADO NET Source Output]"
+          TopLeft="327.958331366173,140.352632780689">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="80.1666625522908,0"
+              Start="0,0"
+              End="72.6666625522908,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="72.6666625522908,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\BQTB_metric_table.Paths[Derived Column Output]"
+          TopLeft="564.124993918464,142.438598770734">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="70.2499966286122,0"
+              Start="0,0"
+              End="62.7499966286122,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="62.7499966286122,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\BQTB_metric_table\OLE DB Destination"
+          TopLeft="890.833297934798,131.733334380256" />
+        <EdgeLayout
+          Id="Package\BQTB_metric_table.Paths[Data Conversion Output]"
+          TopLeft="792.774990547076,142.305265437401">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="98.0583073877225,10.2280689428548"
+              Start="0,0"
+              End="90.5583073877225,10.2280689428548">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="45.0291536938612,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="45.0291536938612,0"
+                    Point2="49.0291536938612,0"
+                    Point3="49.0291536938612,4" />
+                  <mssgle:LineSegment
+                    End="49.0291536938612,6.2280689428548" />
+                  <mssgle:CubicBezierSegment
+                    Point1="49.0291536938612,6.2280689428548"
+                    Point2="49.0291536938612,10.2280689428548"
+                    Point3="53.0291536938612,10.2280689428548" />
+                  <mssgle:LineSegment
+                    End="90.5583073877225,10.2280689428548" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\BQTB_metric_table\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\BQTB_metric_table\ADO NET Source 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
